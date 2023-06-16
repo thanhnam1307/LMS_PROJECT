@@ -159,22 +159,16 @@ $(document).ready(function(){
                          aria-labelledby="coursefilter3" data-parent="#courseSidebar">
                         <ul class="list-unstyled list-group list-checkbox">
                             <li class="custom-control custom-radio">
-                                <input type="radio" id="pricecustomradio1" name="customRadio"
-                                       class="custom-control-input">
-                                <label class="custom-control-label font-size-base" for="pricecustomradio1">All
-                                    (18)</label>
+                                <input type="radio" id="price-1" name="customRadio" class="custom-control-input filter-checkbox" value="PriceAll" data-filter="price">
+                                <label class="custom-control-label font-size-base" for="price-1">All (18)</label>
                             </li>
                             <li class="custom-control custom-radio">
-                                <input type="radio" id="pricecustomradio2" name="customRadio"
-                                       class="custom-control-input">
-                                <label class="custom-control-label font-size-base" for="pricecustomradio2">Free
-                                    (3)</label>
+                                <input type="radio" id="price-2" name="customRadio" class="custom-control-input filter-checkbox" value="PriceFree" data-filter="price">
+                                <label class="custom-control-label font-size-base" for="price-2">Free (3)</label>
                             </li>
                             <li class="custom-control custom-radio">
-                                <input type="radio" id="pricecustomradio3" name="customRadio"
-                                       class="custom-control-input">
-                                <label class="custom-control-label font-size-base" for="pricecustomradio3">Paid
-                                    (15)</label>
+                                <input type="radio" id="price-3" name="customRadio" class="custom-control-input filter-checkbox" value="PricePaid" data-filter="price">
+                                <label class="custom-control-label font-size-base" for="price-3">Paid (15)</label>
                             </li>
                         </ul>
                     </div>
@@ -212,8 +206,7 @@ $(document).ready(function(){
                             {% for i in level %}
                             <li class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="level-{{i.id}}">
-                                <label class="custom-control-label font-size-base" for="level-{{i.id}}">{{ i.name }} ({{
-                                    i.course_set.all.count}})</label>
+                                <label class="custom-control-label font-size-base" for="level-{{i.id}}">{{ i.name }} ({{ i.course_set.all.count}})</label>
                             </li>
                             {% endfor %}
                         </ul>
@@ -431,12 +424,17 @@ $(document).ready(function(){
                                         </ul>
                                     </div>
 
+                                      {% if i.price == 0 %}
+                                     <div class="col-auto px-2 text-right">
+                                        <del class="font-size-sm">₹ {{i.price}}</del>
+                                        <ins class="h4 mb-0 d-block mb-lg-n1"><a href="#" class="badge badge-primary">Free</a></ins>
+                                    </div>
+                                    {% else %}
                                     <div class="col-auto px-2 text-right">
                                         <del class="font-size-sm">₹ {{i.price}}</del>
-                                        <ins class="h4 mb-0 d-block mb-lg-n1">₹
-                                            {% discount_calculation i.price i.discount %}
-                                        </ins>
+                                        <ins class="h4 mb-0 d-block mb-lg-n1">₹ {% discount_calculation i.price i.discount %}</ins>
                                     </div>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
