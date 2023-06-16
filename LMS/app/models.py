@@ -8,7 +8,7 @@ class Categories(models.Model):
     def __str__(self):
         return self.name
     def get_all_category(self):
-        return Categories.objects.all().order_by('id')
+        return Categories.objects.all().order_by('-id')
 
 class Author(models.Model):
     author_profile = models.ImageField(upload_to="Media/author")
