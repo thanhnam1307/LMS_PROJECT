@@ -22,3 +22,7 @@ admin.site.register(Level)
 admin.site.register(what_you_learn)
 admin.site.register(Requirements)
 admin.site.register(Lesson)
+admin.site.register(Language)
+admin.site.register(UserCource)
+
+admin.site.register(Payment)

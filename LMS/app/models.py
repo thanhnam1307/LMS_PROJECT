@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.utils.text import slugify
 from django.db.models.signals import pre_save
@@ -27,6 +28,12 @@ class Level(models.Model):
     def __str__(self):
         return self.name
 
+class Language(models.Model):
+    language = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.language
+
 
 class Course(models.Model):
     STATUS = (
@@ -44,8 +51,11 @@ class Course(models.Model):
     description = models.TextField()
     price = models.IntegerField(null=True,default=0)
     discount = models.IntegerField(null=True)
+    language = models.ForeignKey(Language,on_delete=models.CASCADE, null=True)
+    Deadline = models.CharField(max_length=100,null=True)
     slug = models.SlugField(default='', max_length=500, null=True, blank=True)
     status = models.CharField(choices=STATUS,max_length=100,null=True)
+    Certificate = models.CharField(null=True,max_length=100)
 
 
     def __str__(self):
@@ -79,7 +89,7 @@ class what_you_learn(models.Model):
     def __str__(self):
         return self.points
 class Requirements(models.Model):
-    ourse = models.ForeignKey(Course, on_delete=models.CASCADE)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
     points = models.CharField(max_length=500)
 
     def __str__(self):
@@ -104,3 +114,25 @@ class Video(models.Model):
 
     def __str__(self):
         return  self.title
+
+class UserCource(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    course = models.ForeignKey(Course,on_delete=models.CASCADE)
+    paid = models.BooleanField(default=0)
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.user.first_name + " - " + self.course.title
+
+class Payment(models.Model):
+    order_id = models.CharField(max_length=100,null=True,blank=True)
+    payment_id = models.CharField(max_length=100,null = True,blank=True)
+    user_course= models.ForeignKey(UserCource,on_delete =models.CASCADE,null=True)
+    user = models.ForeignKey(User, on_delete = models.CASCADE , null =True)
+    course = models.ForeignKey(Course, on_delete = models.CASCADE , null =True)
+    date = models.DateTimeField(auto_now_add = True)
+    status = models.BooleanField(default = False)
+
+    def __str__(self):
+        return self.user.first_name + " -- " + self.course.title
+
