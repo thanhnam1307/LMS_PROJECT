@@ -28,7 +28,6 @@ INSTALLED_APPS = [
     'crispy_forms',
 ]
 
-
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 CRISPY_TEMPLATE_PACK = 'uni_form'
 
@@ -125,7 +124,6 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'bffkudo1412@gmail.com'
 EMAIL_HOST_PASSWORD = 'namne1307'
-
 
 KEY_ID = "rzp_test_keEdQmSvIqvGrl"
 KEY_SECRET = "un5hA28Vwr4kQHuW84vJX1Tm"
