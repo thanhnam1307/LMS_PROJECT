@@ -4,6 +4,8 @@ from . import views, user_login
 from django.conf import settings
 from django.conf.urls.static import static
 
+
+
 urlpatterns = [
                   path('admin/', admin.site.urls),
                   path('base/', views.BASE, name='base'),
@@ -22,9 +24,10 @@ urlpatterns = [
                   path('accounts/profile/update', user_login.PROFILE_UPDATE, name='profile_update'),
                   path('checkout/<slug:slug>', views.CHECKOUT, name='checkout'),
 
+
+
                   path('my-course/', views.MY_COURSE, name="my_course"),
                   path('verify_payment/', views.VERIFY_PAYMENT, name="verify_payment"),
-                  path('course/watch-course/<slug:slug>',views.WATCH_COURSE,name='watch-course'),
-
+                  path('course/watch-course/<slug:slug>', views.WATCH_COURSE, name='watch-course'),
 
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

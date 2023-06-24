@@ -10,6 +10,7 @@ from .settings import *
 from time import time
 import razorpay
 
+
 client = razorpay.Client(auth=(KEY_ID, KEY_SECRET))
 
 
@@ -197,7 +198,6 @@ def CHECKOUT(request, slug):
 
 def MY_COURSE(request):
     course = UserCource.objects.filter(user=request.user)
-
     context = {
         'course': course,
     }
@@ -248,3 +248,5 @@ def WATCH_COURSE(request,slug):
         'video' : video,
     }
     return render(request, 'course/watch-course.html',context)
+
+
