@@ -4,8 +4,7 @@ from . import views, user_login
 from django.conf import settings
 from django.conf.urls.static import static
 
-
-
+app_name = 'app'
 urlpatterns = [
                   path('admin/', admin.site.urls),
                   path('base/', views.BASE, name='base'),
@@ -24,6 +23,11 @@ urlpatterns = [
                   path('accounts/profile/update', user_login.PROFILE_UPDATE, name='profile_update'),
                   path('checkout/<slug:slug>', views.CHECKOUT, name='checkout'),
 
+
+                  path('password_reset/', views.password_reset_request, name='password_reset'),
+                  path('password_reset/done/', views.password_reset_done, name='password_reset_done'),
+                  path('reset/<uidb64>/<token>/', views.password_reset_confirm, name='password_reset_confirm'),
+                  path('reset/done/', views.password_reset_complete, name='password_reset_complete'),
 
 
                   path('my-course/', views.MY_COURSE, name="my_course"),

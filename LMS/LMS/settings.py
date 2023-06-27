@@ -25,10 +25,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
-    'crispy_forms',
 ]
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
 MIDDLEWARE = [
@@ -119,11 +117,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'login'
 
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'bffkudo1412@gmail.com'
-EMAIL_HOST_PASSWORD = 'namne1307'
+EMAIL_HOST_PASSWORD = 'namne130704'
 
 KEY_ID = "rzp_test_keEdQmSvIqvGrl"
 KEY_SECRET = "un5hA28Vwr4kQHuW84vJX1Tm"
