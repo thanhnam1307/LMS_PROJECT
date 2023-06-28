@@ -58,24 +58,24 @@ $(document).ready(function(){
 
 <!-- CONTROL BAR
 ================================================== -->
-<div class="container mb-6 mb-xl-8 z-index-2">
-    <div class="d-lg-flex align-items-center mb-6 mb-xl-0">
-        <div class="ms-lg-auto d-lg-flex flex-wrap">
-            <div class="mb-4 mb-lg-0 ms-lg-6">
-                <div class="border rounded d-flex align-items-center choices-label h-50p">
-                    <span class="ps-5">Sort by:</span>
-                    <select class="form-select form-select-sm text-dark border-0 ps-1 bg-transparent flex-grow-1 shadow-none dropdown-menu-end"
-                            data-choices>
-                        <option>Default</option>
-                        <option>New Courses</option>
-                        <option>Price Low to High</option>
-                        <option>Price High to low</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<!--<div class="container mb-6 mb-xl-8 z-index-2">-->
+<!--    <div class="d-lg-flex align-items-center mb-6 mb-xl-0">-->
+<!--        <div class="ms-lg-auto d-lg-flex flex-wrap">-->
+<!--            <div class="mb-4 mb-lg-0 ms-lg-6">-->
+<!--                <div class="border rounded d-flex align-items-center choices-label h-50p">-->
+<!--                    <span class="ps-5">Sort by:</span>-->
+<!--                    <select class="form-select form-select-sm text-dark border-0 ps-1 bg-transparent flex-grow-1 shadow-none dropdown-menu-end"-->
+<!--                            data-choices>-->
+<!--                        <option>Default</option>-->
+<!--                        <option>New Courses</option>-->
+<!--                        <option>Price Low to High</option>-->
+<!--                        <option>Price High to low</option>-->
+<!--                    </select>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 <!-- COURSE LIST V2
 ================================================== -->
@@ -173,45 +173,45 @@ $(document).ready(function(){
                         </ul>
                     </div>
                 </div>
+<!--==========Level=============-->
+<!--                <div class="border rounded mb-6 @@widgetBG">-->
+<!--                    &lt;!&ndash; Heading &ndash;&gt;-->
+<!--                    <div id="coursefilter4">-->
+<!--                        <h4 class="mb-0">-->
+<!--                            <button class="p-6 text-dark fw-medium d-flex align-items-center collapse-accordion-toggle line-height-one"-->
+<!--                                    type="button" data-bs-toggle="collapse" data-bs-target="#coursefiltercollapse4"-->
+<!--                                    aria-expanded="true" aria-controls="coursefiltercollapse4">-->
+<!--                                Level -->
+<!--                                <span class="ms-auto text-dark d-flex">-->
+<!--                                        &lt;!&ndash; Icon &ndash;&gt;-->
+<!--                                        <svg width="15" height="2" viewBox="0 0 15 2" fill="none"-->
+<!--                                             xmlns="http://www.w3.org/2000/svg">-->
+<!--                                            <rect width="15" height="2" fill="currentColor"/>-->
+<!--                                        </svg>-->
 
-                <div class="border rounded mb-6 @@widgetBG">
-                    <!-- Heading -->
-                    <div id="coursefilter4">
-                        <h4 class="mb-0">
-                            <button class="p-6 text-dark fw-medium d-flex align-items-center collapse-accordion-toggle line-height-one"
-                                    type="button" data-bs-toggle="collapse" data-bs-target="#coursefiltercollapse4"
-                                    aria-expanded="true" aria-controls="coursefiltercollapse4">
-                                Level
-                                <span class="ms-auto text-dark d-flex">
-                                        <!-- Icon -->
-                                        <svg width="15" height="2" viewBox="0 0 15 2" fill="none"
-                                             xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="15" height="2" fill="currentColor"/>
-                                        </svg>
+<!--                                        <svg width="15" height="16" viewBox="0 0 15 16" fill="none"-->
+<!--                                             xmlns="http://www.w3.org/2000/svg">-->
+<!--                                            <path d="M0 7H15V9H0V7Z" fill="currentColor"/>-->
+<!--                                            <path d="M6 16L6 8.74228e-08L8 0L8 16H6Z" fill="currentColor"/>-->
+<!--                                        </svg>-->
 
-                                        <svg width="15" height="16" viewBox="0 0 15 16" fill="none"
-                                             xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M0 7H15V9H0V7Z" fill="currentColor"/>
-                                            <path d="M6 16L6 8.74228e-08L8 0L8 16H6Z" fill="currentColor"/>
-                                        </svg>
+<!--                                    </span>-->
+<!--                            </button>-->
+<!--                        </h4>-->
+<!--                    </div>-->
 
-                                    </span>
-                            </button>
-                        </h4>
-                    </div>
-
-                    <div id="coursefiltercollapse4" class="collapse show mt-n2 px-6 pb-6"
-                         aria-labelledby="coursefilter4" data-parent="#courseSidebar">
-                        <ul class="list-unstyled list-group list-checkbox">
-                            {% for i in level %}
-                            <li class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="level-{{i.id}}">
-                                <label class="custom-control-label font-size-base" for="level-{{i.id}}">{{ i.name }} ({{ i.course_set.all.count}})</label>
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </div>
+<!--                    <div id="coursefiltercollapse4" class="collapse show mt-n2 px-6 pb-6"-->
+<!--                         aria-labelledby="coursefilter4" data-parent="#courseSidebar">-->
+<!--                        <ul class="list-unstyled list-group list-checkbox">-->
+<!--                            {% for i in level %}-->
+<!--                            <li class="custom-control custom-checkbox">-->
+<!--                                <input type="checkbox" class="custom-control-input" id="level-{{i.id}}">-->
+<!--                                <label class="custom-control-label font-size-base" for="level-{{i.id}}">{{ i.name }} ({{ i.course_set.all.count}})</label>-->
+<!--                            </li>-->
+<!--                            {% endfor %}-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                </div>-->
 
                 <div class="border rounded mb-6 @@widgetBG">
                     <!-- Heading -->
@@ -352,7 +352,7 @@ $(document).ready(function(){
                                 </a>
                             </div>
 
-                            <a href="course-single-v5.html" class="card-img sk-thumbnail d-block">
+                            <a href="{{i.get_absolute_url}}" class="card-img sk-thumbnail d-block">
                                 <img class="rounded shadow-light-lg" src="/{{i.featured_image}}" alt="ảnh bị lỗi">
                             </a>
 
@@ -371,7 +371,7 @@ $(document).ready(function(){
 
                             <!-- Preheading -->
                             <a href="course-single-v5.html"><span
-                                    class="mb-1 d-inline-block text-gray-800">Photography</span></a>
+                                    class="mb-1 d-inline-block text-gray-800">{{i.category}}</span></a>
 
                             <!-- Heading -->
                             <div class="position-relative">

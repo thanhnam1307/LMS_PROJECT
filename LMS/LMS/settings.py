@@ -62,12 +62,27 @@ WSGI_APPLICATION = 'LMS.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'NAME': 'LMS',
+        'CLIENT': {
+            'host': 'localhost:27017',
+            'port': 27017,
+            'username': 'user',
+            'password': '12345',
+            'authSource': 'LMS',  # Usually 'admin' or 'your-database-name'
+            'authMechanism': 'SCRAM-SHA-1',  # Or 'SCRAM-SHA-256' depending on your MongoDB server version
+        }
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
